@@ -1,67 +1,33 @@
 #!/bin/bash
 set -e
 
+defaults write com.apple.dock persistent-apps -array #Kill the whole ass dock
+
+xcode-select --install
+
+read -p "Installing XCode Developer Tools. When finished, press enter to continue."
+
 if [ ! -f "resources/Monty.jpg" ]; then
 	cd ~/Desktop
 	git clone https://github.com/bdcollins18/Configuration.git
 	cd Configuration
 fi
 
-open todo-list.html
-
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew update
 
-brew install git
+brew bundle
 
-brew install bash
-
-brew install coreutils
-
-brew install moreutils
-
-brew install diffutils
-
-brew install findutils
-
-brew install mas
-
-brew install python
-
-brew install java
-
+#OpenJDK Post-Install
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
-brew install fish
-
+#Fish Post Install - Make Default Shell
 echo $(which fish) | sudo tee -a /etc/shells
 
 sudo chsh -s $(which fish)
 
-mas install 926036361 #LastPass
-
-brew install --cask little-snitch
-
-brew install --cask sound-source
-
-mas install 441258766 #Magnet
-
-brew install --cask spotify
-
-brew install --cask discord
-
-brew install --cask league-of-legends
-
-brew install --cask steam
-
-brew install --cask sublime-text
-
-brew install --cask transmission
-
-mas install 1451685025 #WireGaurd
-
-brew install --cask qr-journal
+#Restore ~/Documents from Duplicacy Backup
 
 open -a 'WireGuard'
 
@@ -75,10 +41,6 @@ killall 'QR Journal'
 
 brew remove 'qr-journal'
 
-brew tap bdcollins18/tap
-
-brew install --cask duplicacy-cli
-
 cd ~/Documents
 
 echo 'Setting up Duplicacy with SFTP'
@@ -89,5 +51,3 @@ duplicacy init documents sftp://$USERHOST//bigslappy/backup/
 REVISION=$(duplicacy list | tail -n 1 | grep -o -e "[0-9]\+" | head -n 1)
 
 duplicacy restore -r $REVISION
-
-/bin/bash macos-defaults

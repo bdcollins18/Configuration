@@ -1,0 +1,27 @@
+mas "LastPass Password Manager", id: 926036361
+mas "Magnet", id: 441258766
+mas "WireGuard", id: 1451685025
+
+tap "bdcollins18/tap"
+
+cask "duplicacy-cli"
+cask "qr-journal"
+cask "brave-browser"
+cask "soundsource"
+cask "spotify"
+cask "discord"
+cask "league-of-legends"
+cask "steam"
+cask "sublime-text"
+cask "transmission"
+cask "nordvpn"
+
+brew "git"
+brew "bash"
+brew "coreutils"
+brew "moreutils"
+brew "diffutils"
+brew "findutils"
+brew "python"
+brew "java"
+brew "fish"
