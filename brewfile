@@ -16,7 +16,6 @@ cask "sublime-text"
 cask "transmission"
 cask "nordvpn"
 
-brew "git"
 brew "bash"
 brew "coreutils"
 brew "moreutils"

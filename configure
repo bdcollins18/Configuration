@@ -2,10 +2,7 @@
 set -e
 
 defaults write com.apple.dock persistent-apps -array #Kill the whole ass dock
-
-xcode-select --install
-
-read -p "Installing XCode Developer Tools. When finished, press enter to continue."
+killall Dock
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
