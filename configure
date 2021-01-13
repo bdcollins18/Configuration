@@ -7,12 +7,6 @@ xcode-select --install
 
 read -p "Installing XCode Developer Tools. When finished, press enter to continue."
 
-if [ ! -f "resources/Monty.jpg" ]; then
-	cd ~/Desktop
-	git clone https://github.com/bdcollins18/Configuration.git
-	cd Configuration
-fi
-
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew update
