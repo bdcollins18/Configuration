@@ -4,7 +4,7 @@
 [ ] Configure Desktop/Dock
 [ ] Configure Finder
 [ ] Configure Apps
-[ ] Move SSH Keys to `~/.ssh/`
+[ ] Move SSH Keys to `~/.ssh/` and `ssh-add -K` the keys
 
 Notes:
 Discord - Prerequest All Permissions
