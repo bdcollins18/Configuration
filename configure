@@ -10,13 +10,13 @@ brew update
 
 brew bundle
 
-#OpenJDK Post-Install
+#OpenJDK Post Install
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
 #Fish Post Install - Make Default Shell
 echo $(which fish) | sudo tee -a /etc/shells
 
-sudo chsh -s $(which fish)
+chsh -s $(which fish)
 
 #Restore ~/Documents from Duplicacy Backup
 
@@ -42,3 +42,7 @@ duplicacy init documents sftp://$USERHOST//bigslappy/backup/
 REVISION=$(duplicacy list | tail -n 1 | grep -o -e "[0-9]\+" | head -n 1)
 
 duplicacy restore -r $REVISION
+
+#LittleSnitch Post Install - requires restart
+
+open /usr/local/Caskroom/little-snitch4/4.6/LittleSnitch-4.6.dmg
