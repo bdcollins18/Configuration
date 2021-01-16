@@ -16,7 +16,7 @@ cask "discord"
 cask "sublime-text"
 cask "transmission"
 cask "nordvpn"
-cask "little-snitch4"
+cask "little-snitch"
 
 brew "bash"
 brew "coreutils"

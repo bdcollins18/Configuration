@@ -11,3 +11,4 @@ Discord - Prerequest All Permissions
 League of Legends - Relaunch after patching to install/update Riot Client
 Steam - Install CSGO
 Transmission - Blocklist File http://john.bitsurge.net/public/biglist.p2p.gz
+Sublime Text - Install Package Control, Disable Hot Exit
