@@ -10,6 +10,9 @@ CONFIG_DIR=$(pwd)
 touch ~/.profile
 echo "PATH=$PATH" > ~/.profile
 
+defaults delete com.apple.dock persistent-apps
+Killall Dock
+
 open -a "App Store"
 read -p "Login To iCloud in the App Store..."
 
