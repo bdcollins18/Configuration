@@ -1,48 +1,71 @@
 #!/bin/bash
+
+# Exit if any command in a pipeline errors
 set -e
 
-defaults write com.apple.dock persistent-apps -array #Kill the whole ass dock
-killall Dock
+cd "$(pwd)/$(dirname $0)"
+CONFIG_DIR=$(pwd)
 
+# Setup .profile
+touch ~/.profile
+echo "PATH=$PATH" > ~/.profile
+
+# Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew tap homebrew/cask
+brew tap homebrew/cask-versions
+brew tap Gcenx/homebrew-wine
+brew intall mas
+# This will also install XCode Command Line Tools without prompting
 
-brew update
+# OSX ships with outdated utilities
+brew install bash
+brew install git
+# By default, these are linked with 'g' prefixed names so the OSX versions are still used
+brew install coreutils
+echo 'export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"' >> ~/.profile
+source ~/.profile
+brew install findutils
+echo 'export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"' >> ~/.profile
+source ~/.profile
+brew install moreutils
+brew install diffutils
 
-brew bundle
+# OSX ships with Python 2.7.X
+brew install python
 
-#OpenJDK Post Install
-sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+# OSX doesnt ship with a Java Runtime/SDK
+brew install java
+echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.profile
+source ~/.profile
 
-#Fish Post Install - Make Default Shell
-echo $(which fish) | sudo tee -a /etc/shells
-
+# Install Fish and change shell
+brew install fish
+echo $(which fish) | sudo tee -a /etc/shells >> /dev/null
 chsh -s $(which fish)
 
-#Restore ~/Documents from Duplicacy Backup
+mas install 736189492 # Notability
+mas install 441258766 # Magnet
+mas install 1451685025 # Wireguard
+mas install 1352778147 # Bitwarden
 
-open -a 'WireGuard'
+brew install --no-quarantine --cask qr-journal
+brew install --no-quarantine --cask duplicacy
 
-open -a 'QR Journal'
-
-read -p 'Setup WireGuard and Enter A Host to Test: ' HOST
-
-ping -c 1 $HOST
-
-killall 'QR Journal'
-
-brew remove 'qr-journal'
-
-cd ~/Documents
-
-echo 'Setting up Duplicacy with SFTP'
-read -p 'Enter a USER:HOST: ' USERHOST
-
-duplicacy init documents sftp://$USERHOST//bigslappy/backup/
-
-REVISION=$(duplicacy list | tail -n 1 | grep -o -e "[0-9]\+" | head -n 1)
-
-duplicacy restore -r $REVISION
-
-#LittleSnitch Post Install - requires restart
-
-open /usr/local/Caskroom/little-snitch4/4.6/LittleSnitch-4.6.dmg
+brew install --no-quarantine --cask crossover
+brew install --no-quarantine --cask discord
+brew install --no-quarantine --cask fork
+brew install --no-quarantine --cask itsycal
+brew install --no-quarantine --cask league-of-legends
+brew install --no-quarantine --cask little-snitch
+brew install --no-quarantine --cask macs-fan-control
+brew install --no-quarantine --cask minecraft
+brew install --no-quarantine --cask sonobus
+brew install --no-quarantine --cask soundsource
+brew install --no-quarantine --cask spotify
+brew install --no-quarantine --cask steam
+brew install --no-quarantine --cask sublime-text
+brew install --no-quarantine --cask transmission
+brew install --no-quarantine --cask vmware-fusion
+brew install --no-quarantine --cask wine-crossover
+brew install --no-quarantine --cask zoom
