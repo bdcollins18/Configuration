@@ -10,17 +10,21 @@ CONFIG_DIR=$(pwd)
 touch ~/.profile
 echo "PATH=$PATH" > ~/.profile
 
+open -a "App Store"
+read -p "Login To iCloud in the App Store..."
+
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew tap homebrew/cask
 brew tap homebrew/cask-versions
 brew tap Gcenx/homebrew-wine
-brew intall mas
+brew install mas
 # This will also install XCode Command Line Tools without prompting
 
 # OSX ships with outdated utilities
 brew install bash
 brew install git
+brew install openssh
 # By default, these are linked with 'g' prefixed names so the OSX versions are still used
 brew install coreutils
 echo 'export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"' >> ~/.profile
@@ -44,15 +48,12 @@ brew install fish
 echo $(which fish) | sudo tee -a /etc/shells >> /dev/null
 chsh -s $(which fish)
 
+mas install 1352778147 # Bitwarden
+mas install 1451685025 # Wireguard
 mas install 736189492 # Notability
 mas install 441258766 # Magnet
-mas install 1451685025 # Wireguard
-mas install 1352778147 # Bitwarden
 
-brew install --no-quarantine --cask qr-journal
 brew install --no-quarantine --cask duplicacy
-
-brew install --no-quarantine --cask crossover
 brew install --no-quarantine --cask discord
 brew install --no-quarantine --cask fork
 brew install --no-quarantine --cask itsycal
