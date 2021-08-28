@@ -64,7 +64,10 @@ brew install --no-quarantine --cask duplicacy
 brew install --no-quarantine --cask discord
 brew install --no-quarantine --cask fork
 brew install --no-quarantine --cask itsycal
+
 brew install --no-quarantine --cask league-of-legends
+open "/usr/local/Caskroom/league-of-legends/1.0/"
+
 brew install --no-quarantine --cask little-snitch
 brew install --no-quarantine --cask macs-fan-control
 brew install --no-quarantine --cask minecraft
