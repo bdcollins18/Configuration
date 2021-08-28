@@ -80,3 +80,4 @@ brew install --no-quarantine --cask transmission
 brew install --no-quarantine --cask vmware-fusion
 brew install --no-quarantine --cask wine-crossover
 brew install --no-quarantine --cask zoom
+brew install --no-quarantine --cask libreoffice
