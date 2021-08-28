@@ -14,7 +14,7 @@ defaults delete com.apple.dock persistent-apps
 Killall Dock
 
 open -a "App Store"
-read -p "Login To iCloud in the App Store..."
+read -p "Login To iCloud in the App Store... press ENTER to continue"
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -26,7 +26,11 @@ brew install mas
 
 # OSX ships with outdated utilities
 brew install bash
+
 brew install git
+git config --global user.name bdcollins18
+git config --global user.email bdcollins18@gmail.com
+
 brew install openssh
 # By default, these are linked with 'g' prefixed names so the OSX versions are still used
 brew install coreutils
