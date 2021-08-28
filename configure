@@ -57,7 +57,7 @@ chsh -s $(which fish)
 
 mas install 1352778147 # Bitwarden
 mas install 1451685025 # Wireguard
-mas install 736189492 # Notability
+mas install 360593530 # Notability
 mas install 441258766 # Magnet
 
 brew install --no-quarantine --cask duplicacy
