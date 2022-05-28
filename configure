@@ -20,7 +20,6 @@ read -p "Login To iCloud in the App Store... press ENTER to continue"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew tap homebrew/cask
 brew tap homebrew/cask-versions
-brew tap Gcenx/homebrew-wine
 brew install mas
 # This will also install XCode Command Line Tools without prompting
 
@@ -31,17 +30,6 @@ brew install git
 git config --global user.name bdcollins18
 git config --global user.email bdcollins18@gmail.com
 
-brew install openssh
-# By default, these are linked with 'g' prefixed names so the OSX versions are still used
-brew install coreutils
-echo 'export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"' >> ~/.profile
-source ~/.profile
-brew install findutils
-echo 'export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"' >> ~/.profile
-source ~/.profile
-brew install moreutils
-brew install diffutils
-
 # OSX ships with Python 2.7.X
 brew install python
 
@@ -50,34 +38,24 @@ brew install java
 echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.profile
 source ~/.profile
 
-# Install Fish and change shell
-brew install fish
-echo $(which fish) | sudo tee -a /etc/shells >> /dev/null
-chsh -s $(which fish)
-
 mas install 1352778147 # Bitwarden
 mas install 1451685025 # Wireguard
 mas install 360593530 # Notability
 mas install 441258766 # Magnet
+mas install 803453959 # Slack
+mas install 1445910651 # Dynamo
+mas install 497799835 # Xcode
 
-brew install --no-quarantine --cask duplicacy
+brew install --no-quarantine --cask warp
+brew install --no-quarantine --cask visual-studio-code
 brew install --no-quarantine --cask discord
-brew install --no-quarantine --cask fork
 brew install --no-quarantine --cask itsycal
-
-brew install --no-quarantine --cask league-of-legends
-open "/usr/local/Caskroom/league-of-legends/1.0/"
-
 brew install --no-quarantine --cask little-snitch
 brew install --no-quarantine --cask macs-fan-control
-brew install --no-quarantine --cask minecraft
 brew install --no-quarantine --cask sonobus
 brew install --no-quarantine --cask soundsource
 brew install --no-quarantine --cask spotify
-brew install --no-quarantine --cask steam
-brew install --no-quarantine --cask sublime-text
 brew install --no-quarantine --cask transmission
-brew install --no-quarantine --cask vmware-fusion
-brew install --no-quarantine --cask wine-crossover
-brew install --no-quarantine --cask zoom
-brew install --no-quarantine --cask libreoffice
+brew install --no-quarantine --cask vlc
+brew install --no-quarantine --cask gimp
+brew insatll --no-quarantine --cask the-unarchiver

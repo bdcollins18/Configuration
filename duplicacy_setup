@@ -1,8 +1,0 @@
-#!/bin/bash
-cd ~/Documents
-echo 'Setting up Duplicacy with SFTP'
-read -p 'Enter a USER@HOST: ' USERHOST
-duplicacy init documents sftp://$USERHOST//mnt/bigslappy/backup/duplicacy/
-dupicacy add ssd_backup documents /Volumes/Backup/duplicacy/
-REVISION=$(duplicacy list | tail -n 1 | grep -o -e "[0-9]\+" | head -n 1)
-duplicacy restore -r $REVISION
