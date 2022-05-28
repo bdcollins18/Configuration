@@ -23,12 +23,13 @@ brew tap homebrew/cask-versions
 brew install mas
 # This will also install XCode Command Line Tools without prompting
 
-# OSX ships with outdated utilities
 brew install bash
 
 brew install git
 git config --global user.name bdcollins18
 git config --global user.email bdcollins18@gmail.com
+
+brew install restic
 
 # OSX ships with Python 2.7.X
 brew install python
